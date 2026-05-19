@@ -228,9 +228,19 @@ export default function CreatorDetailPage() {
       <div className="mx-auto max-w-5xl">
         <div className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl shadow-[0_0_40px_rgba(59,130,246,0.12)]">
           <div className="flex flex-col gap-8 md:flex-row md:items-start">
-            <div className="flex h-24 w-24 items-center justify-center rounded-3xl bg-gradient-to-r from-blue-500 to-purple-600 text-4xl font-bold">
-              {creator.name?.charAt(0) || "C"}
-            </div>
+            <div className="h-24 w-24 overflow-hidden rounded-3xl bg-gradient-to-r from-blue-500 to-purple-600">
+  {creator.profileImage ? (
+    <img
+      src={creator.profileImage}
+      alt={creator.name}
+      className="h-full w-full object-cover"
+    />
+  ) : (
+    <div className="flex h-full w-full items-center justify-center text-4xl font-bold text-white">
+      {creator.name?.charAt(0) || "C"}
+    </div>
+  )}
+</div>
 
             <div className="flex-1">
               <p className="mb-3 inline-block rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-300">

@@ -65,6 +65,7 @@ if (data.role === "Creator")
               reviewCount > 0 ? (totalRating / reviewCount).toFixed(1) : "0";
 
             creatorsList.push({
+              profileImage: data.profileImage || "",
               id: docItem.id,
               name: data.name || "Unnamed Creator",
               niche: data.niche || "N/A",
@@ -130,9 +131,19 @@ if (data.role === "Creator")
                 className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl shadow-[0_0_30px_rgba(59,130,246,0.08)] transition hover:scale-[1.01]"
               >
                 <div className="mb-4 flex items-center gap-4">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-r from-blue-500 to-purple-600 text-xl font-bold text-white">
-                    {creator.name?.charAt(0) || "C"}
-                  </div>
+                  <div className="h-14 w-14 overflow-hidden rounded-2xl bg-gradient-to-r from-blue-500 to-purple-600">
+  {creator.profileImage ? (
+    <img
+      src={creator.profileImage}
+      alt={creator.name}
+      className="h-full w-full object-cover"
+    />
+  ) : (
+    <div className="flex h-full w-full items-center justify-center text-xl font-bold text-white">
+      {creator.name?.charAt(0) || "C"}
+    </div>
+  )}
+</div>
                   <div>
                     <h2 className="text-xl font-semibold">{creator.name}</h2>
                     <p className="text-sm text-gray-400">{creator.niche}</p>
