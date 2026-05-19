@@ -130,7 +130,7 @@ export default function ChatsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top,_#312e81,_#0f172a_45%,_#000_100%)] px-6 py-12 text-white">
+    <div className="min-h-screen overflow-x-hidden bg-[radial-gradient(circle_at_top,_#312e81,_#0f172a_45%,_#000_100%)] px-4 py-8 text-white md:px-6 md:py-12">
       <div className="mx-auto max-w-6xl">
         <div className="mb-8">
           <p className="mb-3 inline-block rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-300">
@@ -164,7 +164,7 @@ export default function ChatsPage() {
               return (
                 <div
                   key={chat.id}
-                  className="relative rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl shadow-[0_0_30px_rgba(59,130,246,0.08)]"
+                  className="relative w-full overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-5 backdrop-blur-xl shadow-[0_0_30px_rgba(59,130,246,0.08)]"
                 >
                   {chat.unreadCount > 0 && (
                     <div className="absolute right-4 top-4 rounded-full bg-red-500 px-2 py-1 text-xs font-bold text-white">
@@ -186,7 +186,7 @@ export default function ChatsPage() {
                   </div>
 
                   <p
-                    className={`mb-3 truncate text-sm ${
+                   className={`mb-3 break-words text-sm ${
                       chat.unreadCount > 0
                         ? "font-semibold text-white"
                         : "text-gray-400"
@@ -195,7 +195,7 @@ export default function ChatsPage() {
                     {chat.lastMessage}
                   </p>
 
-                  <div className="space-y-2 text-sm text-gray-300">
+                  <div className="space-y-2 break-words text-sm text-gray-300">
                     <p>
                       <span className="font-semibold text-white">Email:</span>{" "}
                       {otherEmail || "N/A"}
@@ -204,7 +204,7 @@ export default function ChatsPage() {
 
                   <button
                     onClick={() => router.push(`/chat/${chat.id}`)}
-                    className="mt-5 w-full rounded-2xl bg-gradient-to-r from-blue-500 to-purple-600 px-5 py-3 font-semibold text-white transition hover:scale-[1.02]"
+                    className="mt-5 w-full rounded-2xl bg-gradient-to-r from-blue-500 to-purple-600 px-4 py-3 text-sm font-semibold text-white transition hover:scale-[1.02] md:text-base"
                   >
                     Open Chat
                   </button>
