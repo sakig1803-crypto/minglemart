@@ -44,8 +44,8 @@ export default function CreatorsPage() {
 
         for (const docItem of querySnapshot.docs) {
           const data = docItem.data();
-
-          if (data.role === "Creator" && data.emailVerified === true) {
+if (data.role === "Creator")
+           {
             const followers = data.followers || "N/A";
 
             const reviewQuery = query(
